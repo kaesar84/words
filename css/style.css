@@ -487,7 +487,8 @@ footer {
   }
 
   .btnBuscada,
-  .palabraError,.palabraEncontrada {
+  .palabraError,
+  .palabraEncontrada {
     background-color: var(--darkBlue-color);
     width: 2rem;
     height: auto;
@@ -504,7 +505,10 @@ footer {
     background-color: var(--green-color);
     color: (var(--light-color));
     animation: none;
-     gap: 0.1rem;
-     font-weight: bold;
+    gap: 0.1rem;
+    font-weight: bold;
+  }
+  #tituloModal{
+       font-size: 1.5rem;
   }
 }
