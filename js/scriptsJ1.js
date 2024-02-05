@@ -307,14 +307,16 @@ function seleccionarTema(tema) {
   }
 }
 
+let palabraMinus;
+let partida2J;
 
+if (palabras == null) {
+  palabraMinus = localStorage.getItem("palabra2Jugadores");
+  partida2J = true;
+} else {
+  palabraMinus = palabras;
+}
 
-
-
-
-
-
-let palabraMinus = palabras;
 let palabra = palabraMinus.toLocaleUpperCase();
 let longitudPalabra = palabra.length;
 
@@ -379,10 +381,14 @@ function contadorVidas(vida) {
       numVida.textContent = "counter_0";
     }
   } else {
-    reset.textContent = "restart_alt";
+    if (!partida2J) {
+      reset.textContent = "restart_alt";
+    }
   }
 }
 
+// Función para un jugador, mantiene el tema seleccionado
+// y proporciona una nueva palabra aleatoria
 function reiniciar() {
   vidas = vidaReiniciar;
   contadorVidas(vidas);
@@ -410,7 +416,7 @@ function gameOn() {
   // Obtener el contenedor donde se agregarán los botones
   // var contenedorBotones = document.getElementById("botonesAbecedario");
   // Crear un array con las letras del abecedario
-  var letrasAbecedario = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var letrasAbecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".split("");
 
   // Iterar sobre el array y crear un botón para cada letra
   letrasAbecedario.forEach(function (letra) {
@@ -488,8 +494,18 @@ function validarLetraIntroducida(letra) {
     if (palabra == copiaPalabra.join("")) {
       console.log("has Acertado");
       cambioAcierto();
-      reset.textContent = "restart_alt";
-      break;
+      let btnLetra = document.querySelectorAll(".btnLetra");
+      btnLetra.forEach(function (element) {
+        element.classList.add("btnLetraHide");
+        element.classList.remove("btnLetra");
+      });
+      if(!partida2J){
+        reset.textContent = "restart_alt";
+        break;
+      }else{
+        break;
+      }
+      
     }
   }
 
