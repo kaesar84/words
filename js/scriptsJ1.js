@@ -1,8 +1,8 @@
 const dato = localStorage.getItem("temaSeleccionado");
-console.log(dato);
+// console.log(dato);
 
 let palabras = seleccionarTema(dato);
-console.log(palabras);
+
 
 function palabraAleatoria(array) {
   let indice = Math.floor(Math.random() * array.length);
@@ -59,7 +59,7 @@ function seleccionarTema(tema) {
     "Enfermero",
     "Electricista",
     "Carpintero",
-    "Plomero",
+    "Paleta",
     "Piloto",
     "Farmaceutico",
     "Fotografo",
@@ -79,10 +79,9 @@ function seleccionarTema(tema) {
     "Blanco",
     "Negro",
     "Gris",
-    "Café",
     "Celeste",
     "Turquesa",
-    "Marrón",
+    "Marron",
     "Beige",
     "Ocre",
     "Cian",
@@ -90,7 +89,7 @@ function seleccionarTema(tema) {
     "Violeta",
     "Salmon",
     "Marfil",
-    "Turmalina",
+    "Fucsia",
     "Aqua",
     "Malva",
     "Caoba",
@@ -117,10 +116,10 @@ function seleccionarTema(tema) {
     "Ajedrez",
     "Escalada",
     "Pesca",
-    "Softbol",
+    "Taekwondo",
     "Triatlon",
     "Equitacion",
-    "Canotaje",
+    "Vela",
     "Esqui",
   ];
 
@@ -129,19 +128,19 @@ function seleccionarTema(tema) {
     "Vegeta",
     "Piccolo",
     "Gohan",
-    "Krillin",
+    "Krilin",
     "Bulma",
     "Trunks",
     "Goten",
     "Freezer",
     "Cell",
     "Buu",
-    "Bills",
+    "Beerus",
     "Whis",
     "Tenshinhan",
     "Chaos",
     "Yamcha",
-    "Chiaotzu",
+    "Granola",
     "Raditz",
     "Nappa",
     "Pan",
@@ -200,7 +199,7 @@ function seleccionarTema(tema) {
     "EmiratosArabes",
     "Singapur",
     "CoreaDelSur",
-    "Espana",
+    "España",
     "Portugal",
     "Grecia",
     "Noruega",
@@ -231,7 +230,6 @@ function seleccionarTema(tema) {
     "Pegamento",
     "Estuche",
     "Papel",
-    "Marcadores",
     "Pizarra",
     "Compas",
     "Pincel",
@@ -313,8 +311,10 @@ let partida2J;
 if (palabras == null) {
   palabraMinus = localStorage.getItem("palabra2Jugadores");
   partida2J = true;
+  console.log(palabraMinus);
 } else {
   palabraMinus = palabras;
+  console.log(palabras);
 }
 
 let palabra = palabraMinus.toLocaleUpperCase();
@@ -395,7 +395,7 @@ function reiniciar() {
   contenedorBotones.innerHTML = "";
 
   randomP = seleccionarTema(dato);
-  console.log(randomP);
+  // console.log(randomP);
 
   palabraMinus = randomP;
   palabra = palabraMinus.toLocaleUpperCase();
@@ -492,25 +492,24 @@ function validarLetraIntroducida(letra) {
       buscada();
     }
     if (palabra == copiaPalabra.join("")) {
-      console.log("has Acertado");
+      // console.log("has Acertado");
       cambioAcierto();
       let btnLetra = document.querySelectorAll(".btnLetra");
       btnLetra.forEach(function (element) {
         element.classList.add("btnLetraHide");
         element.classList.remove("btnLetra");
       });
-      if(!partida2J){
+      if (!partida2J) {
         reset.textContent = "restart_alt";
         break;
-      }else{
+      } else {
         break;
       }
-      
     }
   }
 
   if (!check) vidas--;
-  console.log(vidas);
+  // console.log(vidas);
   contadorVidas(vidas);
 
   if (vidas < 1) {
