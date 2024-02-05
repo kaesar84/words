@@ -3,7 +3,6 @@ const dato = localStorage.getItem("temaSeleccionado");
 
 let palabras = seleccionarTema(dato);
 
-
 function palabraAleatoria(array) {
   let indice = Math.floor(Math.random() * array.length);
   return array[indice];

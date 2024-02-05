@@ -253,7 +253,16 @@ footer {
 #btnJug2 {
   font-size: 5rem;
   padding: 4rem 3rem;
+  transition: all 0.5s;
 }
+
+#btnJug1:hover,
+#btnJug2:hover {
+  scale:1.10;
+  color: var(--green-color);
+}
+
+
 
 #zonaSeleccionTema {
   width: 60%;
