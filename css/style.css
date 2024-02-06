@@ -450,7 +450,7 @@ footer {
   box-shadow: -74vmin 0 9.681265354662203vmin currentColor;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
   #welcomeModal {
     width: 80vw;
     height: auto;
